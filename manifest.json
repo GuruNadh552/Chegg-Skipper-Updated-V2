@@ -1,0 +1,35 @@
+{
+  "manifest_version": 2,
+  "name": "chegg skipper",
+  "description": "This extension is designed to simplify the irritating process of skipping questions in chegg.",
+  "version": "0.0.0.1",
+  "icons": {
+    "16": "icon.png",
+    "48": "icon.png",
+    "128": "icon.png"
+  },
+
+  "browser_action": {
+    "default_popup": "intro.html",
+    "default_icon": "icon.png"
+  },
+
+  "commands": {
+    "_execute_browser_action": {
+      "suggested_key": {
+        "default": "Shift+Alt+C",
+        "mac": "MacCtrl+Shift+C"
+      },
+      "description": "Welcome to Chegg Skipper!"
+    }
+  },
+
+  "content_scripts": [
+    {
+      "matches": ["https://*.chegg.com/*"],
+      "js": ["jquery.js", "script.js"],
+      "css": ["styles.css"]
+    }
+  ]
+
+}
